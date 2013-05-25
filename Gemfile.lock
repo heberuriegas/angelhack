@@ -65,6 +65,9 @@ GEM
       i18n (~> 0.5)
     faraday (0.8.7)
       multipart-post (~> 1.1)
+    figaro (0.6.4)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     gmaps4rails (1.5.6)
     haml (4.0.3)
       tilt
@@ -76,6 +79,9 @@ GEM
     hashr (0.0.22)
     hike (1.2.2)
     hirb (0.7.1)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -100,10 +106,14 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.3)
+    multi_xml (0.5.3)
     multipart-post (1.2.0)
     mysql2 (0.3.11)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
+    pushmeup (0.1.2)
+      httparty
+      json
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.4.5)
@@ -134,7 +144,6 @@ GEM
     ref (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    rgeo (0.3.20)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -193,6 +202,7 @@ DEPENDENCIES
   factory_girl
   faker
   faraday
+  figaro
   gmaps4rails
   haml
   haml-rails
@@ -202,9 +212,9 @@ DEPENDENCIES
   koala
   less-rails
   mysql2
+  pushmeup
   quiet_assets
   rails (= 3.2.13)
-  rgeo
   rspec-rails
   state_machine
   therubyracer

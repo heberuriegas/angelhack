@@ -15,10 +15,10 @@ gem 'state_machine'
 gem 'bcrypt-ruby'
 gem 'koala'
 gem 'tire'
-gem 'rgeo'
 gem 'faraday'
 gem 'haml'
 gem 'pushmeup'
+gem 'figaro'
 
 group :development do
   gem 'gmaps4rails'
