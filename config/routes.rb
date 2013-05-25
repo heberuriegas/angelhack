@@ -1,4 +1,7 @@
 Angelhack::Application.routes.draw do
+  resources :reports
+
+
   devise_for :users
 
   root to: 'home#index'
