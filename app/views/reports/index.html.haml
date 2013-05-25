@@ -24,4 +24,6 @@
 
 %br
 
+  <%= gmaps("markers" => {"data" => @json, "options" => {"list_container" => "markers_list" } }) %>
+
 = link_to 'New Report', new_report_path
