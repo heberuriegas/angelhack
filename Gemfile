@@ -19,6 +19,7 @@ gem 'faraday'
 gem 'haml'
 gem 'pushmeup'
 gem 'figaro'
+gem 'carrierwave'
 
 group :development do
   gem 'gmaps4rails'
