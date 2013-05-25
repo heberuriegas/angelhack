@@ -196,7 +196,6 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
-  bcrypt-ruby
   cancan
   carrierwave
   coffee-rails
