@@ -3,6 +3,7 @@ class ReportsController < ApplicationController
   # GET /reports.json
   def index
     @reports = Report.all
+    @json = Report.all.to_gmaps4rails
 
     respond_to do |format|
       format.html # index.html.erb

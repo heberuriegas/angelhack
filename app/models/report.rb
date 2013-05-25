@@ -9,7 +9,7 @@ def gmaps4rails_address
   end
 
   def gmaps4rails_infowindow
-      "<h4>#{user.name}</h4>Problema: #{content}"
+      "Problema: #{content}"
   end
 
   def gmaps4rails_marker_picture

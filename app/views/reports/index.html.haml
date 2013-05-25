@@ -24,6 +24,11 @@
 
 %br
 
-  <%= gmaps("markers" => {"data" => @json, "options" => {"list_container" => "markers_list" } }) %>
-
 = link_to 'New Report', new_report_path
+
+%hr
+
+=gmaps4rails(@json)
+
+//- content_for :extra_js do
+//  = javascript_include_tag 'gmaps4rails/gmaps4rails.js'
