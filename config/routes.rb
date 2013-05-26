@@ -10,7 +10,7 @@ Angelhack::Application.routes.draw do
   resources :venues
   resources :reports
 
-  devise_for :users
+  devise_for :users, :token_authentication_key => 'authentication_key'
 
 =begin
   resource :session do
