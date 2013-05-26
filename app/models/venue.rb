@@ -30,6 +30,8 @@ class Venue < ActiveRecord::Base
   include Tire::Model::Callbacks
   include Gmaps4rails::ActsAsGmappable
 
+  index_name INDEX_NAME
+
   attr_accessible :address, :city, :country, :description, :image, :latitude, :longitude, :name, :postalcode, :state, :external_id, :external_type, :categories
 
   acts_as_gmappable :process_geocoding => false
