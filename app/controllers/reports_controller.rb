@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   load_and_authorize_resource
-  skip_authorization_check :only => [:index, :show]
+  skip_authorization_check :only => [:index, :show, :new]
   # GET /reports
   # GET /reports.json
   def index

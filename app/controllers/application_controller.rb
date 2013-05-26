@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter { puts current_user.role unless current_user.nil? }
-
   def foursquare
     @foursquare ||= Foursquare::Base.new(session[:access_token])
   end
