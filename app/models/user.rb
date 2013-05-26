@@ -12,7 +12,11 @@ class User < ActiveRecord::Base
   #has_many :reports # dependent: :destroy
 
   def admin?
-  	self.role == 2
+  	self.role == 0
+  end
+
+  def business?
+    self.role == 2
   end
 
 end

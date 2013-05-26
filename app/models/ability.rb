@@ -4,10 +4,16 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
     if user.admin?
-            can :edit, Report
-            can :delete, Report
-        else
-            can :index, Report
+      can :manage, :all
+    elsif user.business?
+      can :manage, Venue
+      can :manage, Type
+      can :manage, Contact
+      #can :manage, Comment
+    else
+      can :read, Venue
+      can :read, Report
+      can :read, Category
     end
   end
 end
