@@ -1,9 +1,22 @@
 Angelhack::Application.routes.draw do
+  resources :surveys
+
+
+  resources :responses
+
+
+  resources :questions
+
+
   resources :votes
   resources :comments
   resources :categories
   resources :venues do
     resources :reports
+  end
+
+  resources :reports do
+    resources :votes
   end
 
   devise_for :users, :token_authentication_key => 'authentication_key'

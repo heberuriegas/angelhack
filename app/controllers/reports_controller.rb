@@ -1,8 +1,8 @@
 class ReportsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   load_and_authorize_resource
-  #TODO: Remove new
   skip_authorization_check :only => [:index, :show]
+  
   # GET /reports
   # GET /reports.json
   def index

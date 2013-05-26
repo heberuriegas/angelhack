@@ -1,4 +1,8 @@
 class VotesController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
+  skip_authorization_check :only => [:index, :show]
+
   # GET /votes
   # GET /votes.json
   def index
@@ -40,7 +44,7 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    @vote = Vote.new(params[:vote])
+    @vote = Vote.new(params[:vote].merge(user_id: current_user.id, report_id: params[:report_id]))
 
     respond_to do |format|
       if @vote.save

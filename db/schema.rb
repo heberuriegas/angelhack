@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526091742) do
+ActiveRecord::Schema.define(:version => 20130526095834) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(:version => 20130526091742) do
   add_index "contacts", ["type_id"], :name => "index_contacts_on_type_id"
   add_index "contacts", ["venue_id"], :name => "index_contacts_on_venue_id"
 
+  create_table "questions", :force => true do |t|
+    t.string   "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "reports", :force => true do |t|
     t.string   "content"
     t.datetime "created_at",                  :null => false
@@ -69,6 +75,25 @@ ActiveRecord::Schema.define(:version => 20130526091742) do
   add_index "reports_users", ["report_id", "user_id"], :name => "index_reports_users_on_report_id_and_user_id", :unique => true
   add_index "reports_users", ["report_id"], :name => "index_reports_users_on_report_id"
   add_index "reports_users", ["user_id"], :name => "index_reports_users_on_user_id"
+
+  create_table "responses", :force => true do |t|
+    t.string   "content"
+    t.integer  "question_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "responses", ["question_id"], :name => "index_responses_on_question_id"
+
+  create_table "surveys", :force => true do |t|
+    t.integer  "report_id"
+    t.integer  "response_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "surveys", ["report_id"], :name => "index_surveys_on_report_id"
+  add_index "surveys", ["response_id"], :name => "index_surveys_on_response_id"
 
   create_table "types", :force => true do |t|
     t.string   "title"

@@ -21,3 +21,9 @@ Category.where(title: 'School').first_or_create
 Category.where(title: 'Shop & Service').first_or_create
 Category.where(title: 'Travel & Transport').first_or_create
 Category.where(title: 'Other').first_or_create
+
+question = Question.where(content: '¿Tuviste un mal día con nosotros?').first_or_create
+Response.where(content: 'Si :(', question_id: question.id).first_or_create}
+Response.where(content: 'No :)', question_id: question.id).first_or_create
+Response.where(content: 'Tal vez :|', question_id: question.id).first_or_create
+Response.where(content: 'Que te importa :@', question_id: question.id).first_or_create

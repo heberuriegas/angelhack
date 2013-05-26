@@ -5,6 +5,7 @@ class Report < ActiveRecord::Base
   belongs_to :venue, touch: true
   has_many :votes
   has_many :comments
+  has_many :surveys
 
   validates :venue_id, presence: true
   validates :user_id, presence: true
@@ -54,7 +55,5 @@ class Report < ActiveRecord::Base
   	state :spam
 
   end
-
-
-
+  
 end
