@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20130526095834) do
     t.string   "content"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
-    t.string   "state",      :default => "1"
+    t.string   "state"
     t.integer  "user_id",                     :null => false
     t.integer  "venue_id"
   end

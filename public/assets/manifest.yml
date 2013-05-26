@@ -1,10 +1,18 @@
 ---
+favicon.ico: favicon-93b1709eb991e880b8ca34c6a0797ed3.ico
+favicon/index.ico: favicon-93b1709eb991e880b8ca34c6a0797ed3.ico
+landing_logo.png: landing_logo-b6539c97422e04e2a920115552e1b474.png
+landing_logo/index.png: landing_logo-b6539c97422e04e2a920115552e1b474.png
+landing_phone.png: landing_phone-114dc5eb7546519ea04aba5b1d07b5bd.png
+landing_phone/index.png: landing_phone-114dc5eb7546519ea04aba5b1d07b5bd.png
+landing_store.png: landing_store-735c379b1ec7bd415ebc5d128a1d6347.png
+landing_store/index.png: landing_store-735c379b1ec7bd415ebc5d128a1d6347.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-application.js: application-6e24b6ffb786173c8188cb15a648a869.js
-application/index.js: application-6e24b6ffb786173c8188cb15a648a869.js
-application.css: application-8a66a5c1cf461a2ad8698b80ff77f02d.css
-application/index.css: application-8a66a5c1cf461a2ad8698b80ff77f02d.css
+application.js: application-5a0df64e98d949ac91f1714ebf38e81d.js
+application/index.js: application-5a0df64e98d949ac91f1714ebf38e81d.js
+application.css: application-24c75028831ef4557105d6a1796f1c14.css
+application/index.css: application-24c75028831ef4557105d6a1796f1c14.css
 jquery.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
 jquery/index.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
 fontawesome-webfont.eot: fontawesome-webfont-635909f146e208b3509acdf3b154bf0d.eot

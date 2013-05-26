@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from ActionController::RoutingError do |exception|
-    Rails.logger.error exception.message
+    Rails.logger.error exception.backtrace.join("\n")
 
     respond_to do |format|
       format.html { render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false }
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from Exception do |exception|
-    Rails.logger.error exception.message
+    Rails.logger.error exception.backtrace.join("\n")
 
     respond_to do |format|
       format.html { render :file => "#{Rails.root}/public/500.html", :status => 500, :layout => false }

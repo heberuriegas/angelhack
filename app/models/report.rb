@@ -28,11 +28,11 @@ class Report < ActiveRecord::Base
   validates :user_id, presence: true
 
   STATES = {
-    0 => :revisado,
-    1 => :pendiente,
-    2 => :en_revision,
-    3 => :recomensado,
-    4 => :spam,
+    0 => :pendiente,
+    1 => :en_revision,
+    2 => :recompensado,
+    3 => :spam,
+    4 => :revisado
   }
 
   def positive_votes
