@@ -1,9 +1,15 @@
 namespace :db do
 	desc "Fill database with sample data" 
 	task populate: :environment do
-        # admins
+        # Venues
+        Venue.search(lat_lon: '25.621716,-100.393066')
+        venues = Venue.all
+
+        # Admins
         User.create(email: "iosdsv@gmail.com", password: "Sosads.12", password_confirmation: "Sosads.12", role: 0)
         User.create(email: "ever@noreplay.com", password: "1234", password_confirmation: "1234", role: 0)
+        users = User.all
+
         # Usuarios
     	100.times do |n|
     		email = "prueba-#{n+1}@angelhack.org"
@@ -16,16 +22,19 @@ namespace :db do
         100.times do |n|
             name_data = Faker::Lorem.sentence(1)
             content = Faker::Lorem.sentence(5)
-            Report.create!(content: content, user_id: n, venue_id: n)
+            Report.create!(content: content, user_id: users.sample.id, venue_id: venues.sample.id)
         end
+        reports = Report.all
+
         #Votos
         100.times do |n|
-            Vote.create!(report_id:n,user_id:n,calification:[true, false].sample)
+            vote = Vote.where(report_id:reports.sample.id,user_id:users.sample.id).first_or_create
+            vote.update_attribute(:calification, [true,false].sample)
         end
         #Comentarios
         100.times do |n|
             content = Faker::Lorem.sentence(2)
-            Comment.create!(description:content, report_id:n, user_id:n)
+            Comment.create!(description:content, report_id: reports.sample.id, user_id: users.sample.id)
         end
     end
 end

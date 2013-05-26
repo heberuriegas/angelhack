@@ -68,4 +68,4 @@ module Angelhack
 end
 
 require 'tire'
-Tire::Model::Search.index_prefix "yapp_on_#{Rails.env.to_s.downcase}"
+Tire::Model::Search.index_prefix "angelhack_#{Rails.env.to_s.downcase}"
