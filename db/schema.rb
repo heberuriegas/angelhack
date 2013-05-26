@@ -11,7 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525192115) do
+ActiveRecord::Schema.define(:version => 20130526014003) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "categories_venues", :force => true do |t|
+    t.integer "category_id"
+    t.integer "venue_id"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.string   "title"
+    t.integer  "type_id"
+    t.integer  "venue_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "contacts", ["type_id"], :name => "index_contacts_on_type_id"
+  add_index "contacts", ["venue_id"], :name => "index_contacts_on_venue_id"
+
+  create_table "reports", :force => true do |t|
+    t.string   "name"
+    t.string   "content"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "types", :force => true do |t|
+    t.string   "title"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -30,5 +70,20 @@ ActiveRecord::Schema.define(:version => 20130525192115) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "venues", :force => true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.text     "description"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.string   "postalcode"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end

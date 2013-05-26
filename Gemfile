@@ -19,7 +19,14 @@ gem 'haml'
 gem 'pushmeup'
 gem 'figaro'
 gem 'carrierwave'
+
+# Foursquare API
 gem 'foursquare-api'
+gem 'multi_json'
+gem "json"
+gem "typhoeus"
+gem "quimby"
+gem 'ethon'
 
 group :development do
   gem 'gmaps4rails'

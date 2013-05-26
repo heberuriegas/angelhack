@@ -1,8 +1,20 @@
 Angelhack::Application.routes.draw do
+  resources :categories
+
+
+  resources :venues
+
+
+  resources :venues
   resources :reports
 
-
   devise_for :users
+
+  resource :session do
+    collection do
+      get 'callback'
+    end
+  end
 
   root to: 'home#index'
 
