@@ -18,13 +18,13 @@ namespace :db do
     		password = "password"
     		User.create!(email: email,
     					 password: password,
-    					 password_confirmation: password)
+    					 password_confirmation: password) if User.where(email: email.empty?
     	end
         #Reportes
         100.times do |n|
             name_data = Faker::Lorem.sentence(1)
             content = Faker::Lorem.sentence(5)
-            Report.create!(content: content, user_id: users.sample.id, venue_id: venues.sample.id)
+            Report.where(content: content, user_id: users.sample.id, venue_id: venues.sample.id).first_or_create
         end
         reports = Report.all
 
@@ -36,7 +36,7 @@ namespace :db do
         #Comentarios
         100.times do |n|
             content = Faker::Lorem.sentence(2)
-            Comment.create!(description:content, report_id: reports.sample.id, user_id: users.sample.id)
+            Comment.where(description:content, report_id: reports.sample.id, user_id: users.sample.id).first_or_create
         end
     end
 end
