@@ -3,7 +3,7 @@ class Venue < ActiveRecord::Base
   has_many :contacts
   has_many :reports
 
-  attr_accessible :address, :city, :country, :description, :image, :latitude, :longitude, :name, :postalcode, :state, :external_id, :external_type
+  attr_accessible :address, :city, :country, :description, :image, :latitude, :longitude, :name, :postalcode, :state, :external_id, :external_type, :categories
 
   def reports_count
     self.reports.size
@@ -16,7 +16,15 @@ class Venue < ActiveRecord::Base
       if venues.present?
         venues.first
       else
-        Venue.create(name: venue.name, address: venue.location.address, latitude: venue.location.lat.round(4), longitude: venue.location.lng.round(4), city: venue.location.city, state: venue.location.state, country: venue.location.country, external_type: 'foursquare', external_id: venue.id)
+        categories = []
+        venue.categories.each do |category|
+          categories = Category.where(title: category.parents)
+        end
+        categories = Category.where(title: 'Other') if categories.empty?
+
+        venue = Venue.create(name: venue.name, address: venue.location.address, latitude: venue.location.lat.round(4), longitude: venue.location.lng.round(4), city: venue.location.city, state: venue.location.state, country: venue.location.country, external_type: 'foursquare', external_id: venue.id)
+        venue.categories = categories
+        venue
       end
     end
   end
