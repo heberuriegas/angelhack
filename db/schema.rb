@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526014003) do
+ActiveRecord::Schema.define(:version => 20130526033822) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(:version => 20130526014003) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "state", :default=> 1
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "state",      :default => "1"
   end
 
   create_table "types", :force => true do |t|
@@ -83,8 +83,10 @@ ActiveRecord::Schema.define(:version => 20130526014003) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "external_type"
+    t.string   "external_id"
   end
 
 end
