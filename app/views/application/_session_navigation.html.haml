@@ -1,9 +1,16 @@
-%nav#session-navigation
-  - if user_signed_in?
-    %table
-      %tr
-        =# link_to current_user.friendly_identifier, main_app.current_user_path
-        %td= "Welcome #{current_user.email} |"
-        %td= button_to 'Sign out', destroy_user_session_path, method: :delete, confirm: 'Are you sure you want to log out?', class: 'btn btn-inverse'
-  - else
-    = button_to 'Sign in', new_user_session_path, method: :get, class: 'btn btn-success'
+%div.navbar.navbar-inverse
+  %div.navbar-inner
+    %ul.nav
+      -if user_signed_in?
+        %li
+          %a{:href =>"#"}
+            ="Welcome #{current_user.email}"
+        %li=link_to 'Sign out', destroy_user_session_path, method: :delete, confirm: 'Are you sure you want to log out?'
+      - else
+        %li=link_to 'Sign in', new_user_session_path, method: :get
+      %li
+        %a{:href =>"#"}
+          ="Enterprises"
+      %li
+        %a{:href =>"#"}
+          ="Register"
