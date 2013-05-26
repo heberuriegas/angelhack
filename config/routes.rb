@@ -1,4 +1,10 @@
 Angelhack::Application.routes.draw do
+  resources :votes
+
+
+  resources :comments
+
+
   resources :categories
 
   resources :venues

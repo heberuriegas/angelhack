@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Report:
+  = @vote.report
+%p
+  %b User:
+  = @vote.user
+%p
+  %b Calification:
+  = @vote.calification
+
+= link_to 'Edit', edit_vote_path(@vote)
+\|
+= link_to 'Back', votes_path

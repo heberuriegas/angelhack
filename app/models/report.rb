@@ -2,13 +2,16 @@ class Report < ActiveRecord::Base
   attr_accessible :content, :gmaps, :latitude, :longitude, :name, :state
   acts_as_gmappable :process_geocoding => false
 
-    STATES = {
-      0 => :revisado,
-      1 => :pendiente,
-      2 => :en_revision,
-      3 => :recomensado,
-      4 => :spam,
-    }
+  belongs_to :user
+  has_many :votes
+
+  STATES = {
+    0 => :revisado,
+    1 => :pendiente,
+    2 => :en_revision,
+    3 => :recomensado,
+    4 => :spam,
+  }
     
   state_machine :state, initial: :pendiente do
 

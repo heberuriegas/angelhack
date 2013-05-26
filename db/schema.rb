@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526033822) do
+ActiveRecord::Schema.define(:version => 20130526045441) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(:version => 20130526033822) do
     t.integer "category_id"
     t.integer "venue_id"
   end
+
+  create_table "comments", :force => true do |t|
+    t.text     "description"
+    t.integer  "report_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "comments", ["report_id"], :name => "index_comments_on_report_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "contacts", :force => true do |t|
     t.string   "title"
@@ -45,7 +56,22 @@ ActiveRecord::Schema.define(:version => 20130526033822) do
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
     t.string   "state",      :default => "1"
+    t.integer  "user_id",                     :null => false
   end
+
+  add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
+
+  create_table "reports_users", :force => true do |t|
+    t.integer  "report_id"
+    t.integer  "user_id"
+    t.boolean  "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reports_users", ["report_id", "user_id"], :name => "index_reports_users_on_report_id_and_user_id", :unique => true
+  add_index "reports_users", ["report_id"], :name => "index_reports_users_on_report_id"
+  add_index "reports_users", ["user_id"], :name => "index_reports_users_on_user_id"
 
   create_table "types", :force => true do |t|
     t.string   "title"
@@ -89,5 +115,17 @@ ActiveRecord::Schema.define(:version => 20130526033822) do
     t.string   "external_type"
     t.string   "external_id"
   end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "report_id"
+    t.integer  "user_id"
+    t.boolean  "calification"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "votes", ["report_id", "user_id"], :name => "index_votes_on_report_id_and_user_id", :unique => true
+  add_index "votes", ["report_id"], :name => "index_votes_on_report_id"
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end
