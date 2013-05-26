@@ -14,6 +14,7 @@ class Ability
       can :read, Venue
       can :read, Report
       can :read, Category
+      can :new, Report
     end
   end
 end
