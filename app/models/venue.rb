@@ -28,6 +28,7 @@ class Venue < ActiveRecord::Base
 
   include Tire::Model::Search
   include Tire::Model::Callbacks
+  include Gmaps4rails::ActsAsGmappable
 
   attr_accessible :address, :city, :country, :description, :image, :latitude, :longitude, :name, :postalcode, :state, :external_id, :external_type, :categories
 
