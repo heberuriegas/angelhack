@@ -2,14 +2,14 @@ namespace :db do
 	desc "Fill database with sample data" 
 	task populate: :environment do
         require 'faker'
-        
+
         # Venues
         Venue.search(lat_lon: '25.621716,-100.393066')
         venues = Venue.all
 
         # Admins
-        User.create(email: "iosdsv@gmail.com", password: "Sosads.12", password_confirmation: "Sosads.12", role: 0)
-        User.create(email: "ever@noreplay.com", password: "1234", password_confirmation: "1234", role: 0)
+        User.create(email: "iosdsv@gmail.com", password: "Sosads.12", password_confirmation: "Sosads.12", role: 0) if User.where(email: "iosdsv@gmail.com").empty?
+        User.create(email: "ever@noreplay.com", password: "1234", password_confirmation: "1234", role: 0) if User.where(email: "ever@noreplay.com").empty?
         users = User.all
 
         # Usuarios
