@@ -1,8 +1,9 @@
 class Report < ActiveRecord::Base
-  attr_accessible :content, :gmaps, :latitude, :longitude, :name, :state
+  attr_accessible :content, :gmaps, :latitude, :longitude, :name, :state, :user_id
   acts_as_gmappable :process_geocoding => false
 
   belongs_to :user
+  belongs_to :venue
   has_many :votes
 
   STATES = {

@@ -5,6 +5,10 @@ class Venue < ActiveRecord::Base
 
   attr_accessible :address, :city, :country, :description, :image, :latitude, :longitude, :name, :postalcode, :state, :external_id, :external_type
 
+  def reports_count
+    self.reports.size
+  end
+
   def self.nearby lat_lon
     @@foursquare ||= Foursquare::Base.new(ENV['FOURSQUARE_ACCESS_TOKEN'])
     @@foursquare.venues.search(ll: lat_lon)['nearby'].map do |venue|

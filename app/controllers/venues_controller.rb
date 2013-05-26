@@ -2,11 +2,11 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
   def index
-    @venues = Venue.all
+    @venues = params[:lat_lon].present? ? Venue.nearby(params[:lat_lon]) : Venue.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @venues }
+      format.json { render json: @venues, only:[:name, :address, :city, :state, :latitude, :longitude], methods: [:reports_count] }
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526045441) do
+ActiveRecord::Schema.define(:version => 20130526051005) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20130526045441) do
     t.datetime "updated_at",                  :null => false
     t.string   "state",      :default => "1"
     t.integer  "user_id",                     :null => false
+    t.integer  "venue_id"
   end
 
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
