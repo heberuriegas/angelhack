@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130526014003) do
     t.boolean  "gmaps"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "state", :default=> 1
   end
 
   create_table "types", :force => true do |t|
@@ -51,7 +52,6 @@ ActiveRecord::Schema.define(:version => 20130526014003) do
     t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "state"
   end
 
   create_table "users", :force => true do |t|
