@@ -10,7 +10,6 @@
     %div.container
       %div.row
         %div.span12
-          %h2="Feedback"
           - if flash.present?
             - flash.each do |key, message|
               - case key

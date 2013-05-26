@@ -1,6 +1,14 @@
-%div.hero-unit{:style=>"margin-top:80px;"}
-  = image_tag "landing_phone.png", :class => 'image-logo'
-%div.span5{:style=>'margin-right:-220px;'}
-  %p= "Our main focus is to improve customer service by popular venues and increase customer satisfaction by providing a concrete channel of communication between customer and venue."
-%div.span3
-  = image_tag "landing_store.png", :class => 'store-logo'
+%div.row{style: 'position: absolute; z-index: -1;'}
+  %div.span12
+    %div.hero-unit{:style=>"margin-top:80px;"}
+%div.row
+  %div.span8{style: 'position: relative; left: 100px;'}
+    %iframe{:allowfullscreen => "", :frameborder => "0", :height => "310", :src => "http://www.wideo.co/embed/223101369583826961?height=282&width=500", :width => "540"}
+    %div.row
+      %div.span6
+        %p= "Our main focus is to improve customer service by popular venues and increase customer satisfaction by providing a concrete channel of communication between customer and venue."
+      %div.span2
+        = image_tag "landing_store.png", style: 'position: relative; left: 177px; top: 55px; z-index: 200;'
+  %div.span4{:style=>"margin-top:120px;"}
+    %div.row
+      = image_tag "landing_phone.png", :class => 'image-logo'  
