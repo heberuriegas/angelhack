@@ -1,9 +1,52 @@
 class Report < ActiveRecord::Base
-  attr_accessible :content, :gmaps, :latitude, :longitude, :name
-  #belongs_to :user
-
+  attr_accessible :content, :gmaps, :latitude, :longitude, :name, :state
   acts_as_gmappable :process_geocoding => false
 
+    STATES = {
+      0 => :revisado,
+      1 => :pendiente,
+      2 => :en_revision,
+      3 => :recomensado,
+      4 => :spam,
+    }
+    
+  state_machine :state, initial: :pendiente do
+
+   	STATES.each do |value,name|
+        state name, value: value
+    end
+
+  	event :review do
+  		transition :pendiente => :revisado
+  	end
+
+  	event :not_review do
+  		transition :revisado => :pendiente
+  	end
+
+  	event :in_review do
+  		transition :pendiente => :en_revision
+  	end
+
+  	event :reward do
+  		transition :revisado => :recomensado
+  	end
+
+  	event :spamed do
+  		transition any => :spam
+  	end
+
+  	event :not_spamed do
+  		transition :spam => :pendiente
+  	end
+
+  	state :revisado
+  	state :pendiente
+  	state :en_revision
+  	state :recomensado
+  	state :spam
+
+  end
 
   def gmaps4rails_infowindow
       "Problema: #{content}"
@@ -17,5 +60,7 @@ class Report < ActiveRecord::Base
    "marker_anchor" => [ 5, 10],
   }
   end
+
+
 
 end
