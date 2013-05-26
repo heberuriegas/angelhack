@@ -1,12 +1,9 @@
 Angelhack::Application.routes.draw do
   resources :surveys
 
-
-  resources :responses
-
-
-  resources :questions
-
+  resources :questions do
+    resources :responses
+  end
 
   resources :votes
   resources :comments

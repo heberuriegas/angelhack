@@ -8,9 +8,10 @@ class ApplicationController < ActionController::Base
   rescue_from Exception do |exception|
     Rails.logger.error exception.message
 
-    respond_to do |type|
-      type.html { render :template => "errors/error_404", :status => 404 }
-      type.all  { render :nothing => true, :status => 404 }
+    respond_to do |format|
+      format.html { render :template => "errors/error_404", :status => 404 }
+      #format.json { render json: {error: exception.message} }
+      format.all  { render :nothing => true, :status => 404 }
     end
     true
   end

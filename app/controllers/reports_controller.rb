@@ -6,14 +6,14 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-
     @reports = Report.where(venue_id: params[:venue_id])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @reports, only: [:content,:name,:state], include: {
+      format.json { render json: @reports, only: [:id,:content,:name,:state,:created_at], include: {
           comments: { only: [:id, :description] }
-        }
+        },
+        methods: [:positive_votes, :negative_votes]
       }
     end
   end

@@ -17,6 +17,14 @@ class Report < ActiveRecord::Base
     3 => :recomensado,
     4 => :spam,
   }
+
+  def positive_votes
+    self.votes.where(calification: true).size
+  end
+
+  def negative_votes
+    self.votes.where(calification: false).size
+  end
     
   state_machine :state, initial: :pendiente do
 

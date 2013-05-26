@@ -2,7 +2,7 @@ class ResponsesController < ApplicationController
   # GET /responses
   # GET /responses.json
   def index
-    @responses = Response.all
+    @responses = Response.where(question_id: params[:question_id])
 
     respond_to do |format|
       format.html # index.html.erb
