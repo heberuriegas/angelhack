@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+  load_and_authorize_resource
+  check_authorization
   # GET /reports
   # GET /reports.json
   def index

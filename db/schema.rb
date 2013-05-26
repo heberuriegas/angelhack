@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526014003) do
+ActiveRecord::Schema.define(:version => 20130526031432) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -42,8 +42,9 @@ ActiveRecord::Schema.define(:version => 20130526014003) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "state",      :default => "1"
   end
 
   create_table "types", :force => true do |t|
@@ -51,7 +52,6 @@ ActiveRecord::Schema.define(:version => 20130526014003) do
     t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "state"
   end
 
   create_table "users", :force => true do |t|
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130526014003) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "role",                   :default => 1
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
