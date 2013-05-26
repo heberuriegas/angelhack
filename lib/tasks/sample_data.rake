@@ -18,7 +18,7 @@ namespace :db do
     		password = "password"
     		User.create!(email: email,
     					 password: password,
-    					 password_confirmation: password) if User.where(email: email.empty?
+    					 password_confirmation: password) if User.where(email: email).empty?
     	end
         #Reportes
         100.times do |n|
