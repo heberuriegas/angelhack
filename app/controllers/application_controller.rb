@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  check_authorization
 
   def foursquare
     @foursquare ||= Foursquare::Base.new(session[:access_token])
