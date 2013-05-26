@@ -7,6 +7,10 @@ class Report < ActiveRecord::Base
   has_many :votes
 
   valdates :venue_id, presence: true
+<<<<<<< HEAD
+=======
+  valdates :user_id, presence: true
+>>>>>>> 2a24b2c5fcafcd0941b0bd171ee3c009f6d7d05f
 
   STATES = {
     0 => :revisado,

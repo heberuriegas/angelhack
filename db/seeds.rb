@@ -20,3 +20,4 @@ Category.where(title: 'Residence, Shop & Service').first_or_create
 Category.where(title: 'School').first_or_create
 Category.where(title: 'Shop & Service').first_or_create
 Category.where(title: 'Travel & Transport').first_or_create
+Category.where(title: 'Other').first_or_create
