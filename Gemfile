@@ -19,6 +19,7 @@ gem 'haml'
 gem 'pushmeup'
 gem 'figaro'
 gem 'carrierwave'
+gem 'gmaps4rails'
 
 # Foursquare API
 gem 'foursquare-api'
@@ -29,7 +30,6 @@ gem "quimby"
 gem 'ethon'
 
 group :development do
-  gem 'gmaps4rails'
   gem 'haml-rails'
   gem 'quiet_assets'
   gem 'awesome_print'
