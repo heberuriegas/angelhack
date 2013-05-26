@@ -1,7 +1,8 @@
 namespace :db do
 	desc "Fill database with sample data" 
 	task populate: :environment do
-        User.create(email: "iosdsv@gmail.com", password: "Sosads.12", password_confirmation: "Sosads.12", role: 2)
+        User.create(email: "iosdsv@gmail.com", password: "Sosads.12", password_confirmation: "Sosads.12", role: 0)
+        User.create(email: "ever@noreplay.com", password: "1234", password_confirmation: "1234", role: 0)
     	99.times do |n|
     		email = "prueba-#{n+1}@angelhack.org"
     		password = "password"
