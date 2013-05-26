@@ -22,7 +22,7 @@ namespace :db do
     	end
         #Reportes
         100.times do |n|
-            name_data = Faker::Lorem.sentence(1)
+            name_data = Faker::Lorem.sentence(1) 
             content = Faker::Lorem.sentence(5)
             Report.where(content: content, user_id: users.sample.id, venue_id: venues.sample.id).first_or_create
         end
