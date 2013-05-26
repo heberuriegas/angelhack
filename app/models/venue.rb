@@ -78,7 +78,7 @@ class Venue < ActiveRecord::Base
       params[:q].present? ? query { string "*#{params[:q]}*" } : query { all } #TODO: Add analyzer
 
       filter :geo_distance, lat_lon: params[:lat_lon], distance: params[:distance] if params[:lat_lon].present?
-
+=begin
       sorts = []
       # Sort
       unless params[:orders].blank?
@@ -91,6 +91,7 @@ class Venue < ActiveRecord::Base
 
       sorts << {'id' => 'desc'}
       sort { by sorts }
+=end
     end
   end
 
