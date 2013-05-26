@@ -2,6 +2,7 @@ class Venue < ActiveRecord::Base
   has_and_belongs_to_many :categories
   has_many :contacts
   has_many :reports
+  belongs_to :user
   after_touch { tire.update_index }
 
   include Tire::Model::Search

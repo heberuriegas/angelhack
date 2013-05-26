@@ -1,4 +1,9 @@
 class VenuesController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+  #TODO: Remove new
+  skip_authorization_check :only => [:index, :show]
+  
   # GET /venues
   # GET /venues.json
   def index

@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   #has_many :reports # dependent: :destroy
 
+  has_many :venues
+
   def admin?
   	self.role == 0
   end

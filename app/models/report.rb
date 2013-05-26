@@ -1,5 +1,5 @@
 class Report < ActiveRecord::Base
-  attr_accessible :content, :gmaps, :latitude, :longitude, :name, :state, :user_id, :venue_id
+  attr_accessible :content, :state, :user_id, :venue_id
 
   belongs_to :user
   belongs_to :venue, touch: true

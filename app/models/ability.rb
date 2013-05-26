@@ -7,14 +7,13 @@ class Ability
       can :manage, :all
     elsif user.business?
       can :manage, Venue
-      can :manage, Type
-      can :manage, Contact
-      #can :manage, Comment
+      can :manage, ContactType
+      can :manage, Comment
     else
-      can :read, Venue
+      can :manage, Venue, user_id: user.id
+      can :manage, Report, user_id: user.id
       can :read, Report
       can :read, Category
-      can :new, Report
     end
   end
 end

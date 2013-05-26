@@ -1,8 +1,8 @@
 class ReportsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:index, :show]
   load_and_authorize_resource
   #TODO: Remove new
-  skip_authorization_check :only => [:index, :show, :new]
+  skip_authorization_check :only => [:index, :show]
   # GET /reports
   # GET /reports.json
   def index
@@ -48,12 +48,12 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(params[:report].merge(user_id: current_user.id))
+    @report = Report.new(params[:report].merge(user_id: current_user.id, venue_id: params[:venue_id]))
 
     respond_to do |format|
       if @report.save
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
-        format.json { render json: @report, status: :created, location: @report }
+        format.json { render json: @report, status: :created }
       else
         format.html { render action: "new" }
         format.json { render json: @report.errors, status: :unprocessable_entity }
