@@ -42,9 +42,15 @@ ActiveRecord::Schema.define(:version => 20130526031432) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+<<<<<<< HEAD
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
     t.string   "state",      :default => "1"
+=======
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "state", :default=> 1
+>>>>>>> 255ec53d7aabac10111ae3b49a9698178ef02a18
   end
 
   create_table "types", :force => true do |t|

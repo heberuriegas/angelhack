@@ -6,11 +6,13 @@ Angelhack::Application.routes.draw do
 
   devise_for :users
 
+=begin
   resource :session do
     collection do
       get 'callback'
     end
   end
+=end
 
   root to: 'home#index'
 

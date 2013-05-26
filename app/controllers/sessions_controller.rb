@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
     code = params[:code]
     @access_token = foursquare.access_token(code, callback_session_url)
     session[:access_token] = @access_token
-    debugger
     redirect_to root_path
   end
   
