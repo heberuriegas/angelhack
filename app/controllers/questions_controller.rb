@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @questions, only: [:id, :content] }
+      format.json { render json: @questions, only: [:id, :content], include: { responses: {only: [:id,:content]} } } 
     end
   end
 
