@@ -1,10 +1,6 @@
 Angelhack::Application.routes.draw do
   resources :categories
 
-
-  resources :venues
-
-
   resources :venues
   resources :reports
 
