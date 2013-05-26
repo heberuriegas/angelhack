@@ -22,8 +22,38 @@ Category.where(title: 'Shop & Service').first_or_create
 Category.where(title: 'Travel & Transport').first_or_create
 Category.where(title: 'Other').first_or_create
 
-question = Question.where(content: '¿Tuviste un mal día con nosotros?').first_or_create
-Response.where(content: 'Si :(', question_id: question.id).first_or_create}
-Response.where(content: 'No :)', question_id: question.id).first_or_create
-Response.where(content: 'Tal vez :|', question_id: question.id).first_or_create
-Response.where(content: 'Que te importa :@', question_id: question.id).first_or_create
+#Todas las preguntas en el sitio
+question1 = Question.where(content: 'Piensa regresar nuevamente?').first_or_create
+Response.where(content: 'Si', question_id: question1.id).first_or_create
+Response.where(content: 'No', question_id: question1.id).first_or_create
+Response.where(content: 'Porque', question_id: question1.id).first_or_create
+
+question2 = Question.where(content: "Cual es su grado de satisfaccion?").first_or_create
+Response.where(content: 'Muy Satisfecho', question_id: question2.id).first_or_create
+Response.where(content: 'Satisfecho', question_id: question2.id).first_or_create
+Response.where(content: 'Regular', question_id: question2.id).first_or_create
+Response.where(content: 'Poco', question_id: question2.id).first_or_create
+
+question3 = Question.where(content: "Como califica el servicio de nuestro personal?").first_or_create
+Response.where(content: 'Muy Bueno', question_id: question3.id).first_or_create
+Response.where(content: 'Bueno', question_id: question3.id).first_or_create
+Response.where(content: 'Regular', question_id: question3.id).first_or_create
+Response.where(content: 'Malo', question_id: question3.id).first_or_create
+
+question4 = Question.where(content: "Como le parecieron nuestros precios?").first_or_create
+Response.where(content: 'Muy Altos', question_id: question4.id).first_or_create
+Response.where(content: 'Altos', question_id: question4.id).first_or_create
+Response.where(content: 'Correctos', question_id: question4.id).first_or_create
+Response.where(content: 'Bajos', question_id: question4.id).first_or_create
+
+
+question5 = Question.where(content: "Que opina de nuestras instalaciones?").first_or_create
+Response.where(content: 'Muy Buenas', question_id: question5.id).first_or_create
+Response.where(content: 'Buenas', question_id: question5.id).first_or_create
+Response.where(content: 'Regulares', question_id: question5.id).first_or_create
+Response.where(content: 'Malas', question_id: question5.id).first_or_create
+
+
+question6 = Question.where(content: "El tiempo de respuesta fue el esperado?").first_or_create
+Response.where(content: 'No', question_id: question6.id).first_or_create
+Response.where(content: 'Si', question_id: question6.id).first_or_create

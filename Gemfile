@@ -37,6 +37,7 @@ group :development do
   gem 'debugger'
   gem 'faker'
   gem 'factory_girl'
+  gem 'annotate', ">=2.5.0"
 end
 
 group :development, :test do
