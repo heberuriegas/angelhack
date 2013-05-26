@@ -57,22 +57,10 @@ ActiveRecord::Schema.define(:version => 20130526051005) do
     t.datetime "updated_at",                  :null => false
     t.string   "state",      :default => "1"
     t.integer  "user_id",                     :null => false
-    t.integer  "venue_id"
+    t.integer  "venue_id",                    :null => false
   end
 
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
-
-  create_table "reports_users", :force => true do |t|
-    t.integer  "report_id"
-    t.integer  "user_id"
-    t.boolean  "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "reports_users", ["report_id", "user_id"], :name => "index_reports_users_on_report_id_and_user_id", :unique => true
-  add_index "reports_users", ["report_id"], :name => "index_reports_users_on_report_id"
-  add_index "reports_users", ["user_id"], :name => "index_reports_users_on_user_id"
 
   create_table "types", :force => true do |t|
     t.string   "title"

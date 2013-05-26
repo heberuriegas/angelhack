@@ -16,7 +16,7 @@ namespace :db do
             name = Faker::Lorem.sentence(1)
             lat = r.rand(25.686088..25.76774)
             long = r.rand(-100.530396..-100.085449)
-            Report.create!(content: content, latitude: lat, longitude: long, name: name, gmaps: true)
+            Report.create!(content: content, latitude: lat, longitude: long, name: name, gmaps: true, user_id: n, venue_id: n)
         end
     end
 end
