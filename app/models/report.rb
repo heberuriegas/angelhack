@@ -6,8 +6,8 @@ class Report < ActiveRecord::Base
   belongs_to :venue
   has_many :votes
 
-  valdates :venue_id, presence: true
-  valdates :user_id, presence: true
+  validates :venue_id, presence: true
+  validates :user_id, presence: true
 
   STATES = {
     0 => :revisado,
