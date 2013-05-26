@@ -6,11 +6,19 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.where(venue_id: params[:venue_id])
+    @reports = Report
+
+    if params[:venue_id].present?
+      @reports = @reports.where(venue_id: params[:venue_id])
+    elsif current_user.present?
+      @reports = @reports.where(user_id: current_user.id)
+    else
+      @reports = @reports.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @reports, only: [:id,:content,:name,:state,:created_at], include: {
+      format.json { render json: @reports, only: [:id,:content,:name,:state,:created_at, :user_id], include: {
           comments: { only: [:id, :description] }
         },
         methods: [:positive_votes, :negative_votes]

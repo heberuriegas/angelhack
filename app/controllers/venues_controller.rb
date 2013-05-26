@@ -18,7 +18,7 @@ class VenuesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @venues, only:[:id, :name, :address, :city, :state, :latitude, :longitude, :reports_count], methods: [:reports_count] }
+      format.json { render json: @venues, only:[:id, :name, :address, :city, :state, :latitude, :longitude, :reports_count], methods: [:reports_count], include: { categories: {only: [:id,:title]} } }
     end
   end
 
