@@ -1,6 +1,8 @@
 namespace :db do
 	desc "Fill database with sample data" 
 	task populate: :environment do
+        require 'faker'
+        
         # Venues
         Venue.search(lat_lon: '25.621716,-100.393066')
         venues = Venue.all

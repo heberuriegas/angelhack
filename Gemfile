@@ -20,6 +20,7 @@ gem 'pushmeup'
 gem 'figaro'
 gem 'carrierwave'
 gem 'gmaps4rails'
+gem 'faker'
 
 # Foursquare API
 gem 'foursquare-api'
@@ -35,7 +36,6 @@ group :development do
   gem 'awesome_print'
   gem 'hirb'
   gem 'debugger'
-  gem 'faker'
   gem 'factory_girl'
   gem 'annotate', ">=2.5.0"
 end
