@@ -7,6 +7,7 @@
     %th Latitude
     %th Longitude
     %th Gmaps
+    %th State
     %th
     %th
     %th
@@ -18,6 +19,7 @@
       %td= report.latitude
       %td= report.longitude
       %td= report.gmaps
+      %td= report.state 
       %td= link_to 'Show', report
       %td= link_to 'Edit', edit_report_path(report)
       %td= link_to 'Destroy', report, :method => :delete, :data => { :confirm => 'Are you sure?' }
