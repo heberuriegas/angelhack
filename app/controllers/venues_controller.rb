@@ -2,11 +2,18 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
   def index
-    @venues = params[:lat_lon].present? ? Venue.nearby(params[:lat_lon]) : Venue.all
+
+    if params[:trending] == 'true'
+      params[:per_page] = 10
+      params[:orders] = [:reports_count]
+    end
+
+    @venues = Venue.search(params.merge(load:true))
+    @json = Venue.all.to_gmaps4rails
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @venues, only:[:name, :address, :city, :state, :latitude, :longitude], methods: [:reports_count] }
+      format.json { render json: @venues, only:[:id, :name, :address, :city, :state, :latitude, :longitude, :reports_count], methods: [:reports_count] }
     end
   end
 

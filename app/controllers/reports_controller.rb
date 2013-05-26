@@ -6,12 +6,15 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
-    @json = Report.all.to_gmaps4rails
+
+    @reports = Report.where(venue_id: params[:venue_id])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @reports, includes: {} }
+      format.json { render json: @reports, only: [:content,:name,:state], include: {
+          comments: { only: [:id, :description] }
+        }
+      }
     end
   end
 

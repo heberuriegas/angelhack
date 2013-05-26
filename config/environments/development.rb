@@ -37,3 +37,9 @@ Angelhack::Application.configure do
 
   config.serve_static_assets = false
 end
+
+require 'tire'
+Tire.configure do
+  logger 'log/elasticsearch.log', level: 'debug'
+  url "http://localhost:9200"
+end

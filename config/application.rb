@@ -66,3 +66,6 @@ module Angelhack
     config.assets.version = '1.0'
   end
 end
+
+require 'tire'
+Tire::Model::Search.index_prefix "yapp_on_#{Rails.env.to_s.downcase}"

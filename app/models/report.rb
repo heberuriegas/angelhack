@@ -1,10 +1,10 @@
 class Report < ActiveRecord::Base
   attr_accessible :content, :gmaps, :latitude, :longitude, :name, :state, :user_id, :venue_id
-  acts_as_gmappable :process_geocoding => false
 
   belongs_to :user
-  belongs_to :venue
+  belongs_to :venue, touch: true
   has_many :votes
+  has_many :comments
 
   validates :venue_id, presence: true
   validates :user_id, presence: true
@@ -53,19 +53,6 @@ class Report < ActiveRecord::Base
   	state :recomensado
   	state :spam
 
-  end
-
-  def gmaps4rails_infowindow
-      "Problema: #{content}"
-  end
-
-  def gmaps4rails_marker_picture
-  {
-   "picture" => "http://wcdn3.dataknet.com/static/resources/icons/set4/64b6bbca2da.png",
-   "width" => 20,
-   "height" => 20,
-   "marker_anchor" => [ 5, 10],
-  }
   end
 
 
